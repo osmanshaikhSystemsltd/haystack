@@ -14,7 +14,7 @@ from utils import retrieve_doc
 from utils import upload_doc
 
 # Adjust to a question that you would like users to see in the search bar when they load the UI:
-DEFAULT_QUESTION_AT_STARTUP = "Who is the father of Arya Stark?"
+DEFAULT_QUESTION_AT_STARTUP = "What is Urgent Leave Policy?"
 
 
 def annotate_answer(answer, context):
@@ -55,7 +55,7 @@ random_question = DEFAULT_QUESTION_AT_STARTUP
 eval_labels = os.getenv("EVAL_FILE", "eval_labels_example.csv")
 
 # UI search bar and sidebar
-st.write("# Haystack Demo")
+st.write("# Document Analyzer Systems Limited")
 st.sidebar.header("Options")
 top_k_reader = st.sidebar.slider("Max. number of answers", min_value=1, max_value=10, value=3, step=1)
 top_k_retriever = st.sidebar.slider(
@@ -120,9 +120,7 @@ raw_json_feedback = ""
 # Get results for query
 if run_query:
     with st.spinner(
-        "Performing neural search on documents... 🧠 \n "
-        "Do you want to optimize speed or accuracy? \n"
-        "Check out the docs: https://haystack.deepset.ai/usage/optimization "
+        "Performing neural search on documents... 🧠"
     ):
         results, raw_json = retrieve_doc(question, top_k_reader=top_k_reader, top_k_retriever=top_k_retriever)
 
